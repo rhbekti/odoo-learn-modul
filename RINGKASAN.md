@@ -5,9 +5,9 @@
 ### 📊 Statistik Akhir
 
 ```
-Total Bab: 21 (termasuk README dan Daftar Isi)
-Total Baris: 8,839+ baris dokumentasi
-Total File: 21 file markdown
+Total Bab: 22 (termasuk README dan Daftar Isi)
+Total Baris: 9,100+ baris dokumentasi
+Total File: 22 file markdown
 Bahasa: Indonesia
 Status: LENGKAP ✅
 ```
@@ -16,7 +16,7 @@ Status: LENGKAP ✅
 
 ## 📚 Daftar Bab Lengkap
 
-### ✅ Bab yang Sudah Ada (21 Bab)
+### ✅ Bab yang Sudah Ada (22 Bab)
 
 | # | File | Topik | Status | Baris |
 |---|------|-------|--------|-------|
@@ -39,11 +39,12 @@ Status: LENGKAP ✅
 | 16 | `16-debugging-troubleshooting.md` | Debugging & Troubleshooting | ✅ | 429 |
 | 17 | `17-external-api.md` | External API | ✅ | 559 |
 | 18 | `18-tips-best-practices.md` | Tips & Best Practices | ✅ | 384 |
-| 19 | `19-database-views-filtering.md` | Database Views & Filtering | ✅ NEW | 680 |
-| 20 | `20-contoh-praktis-views.md` | Contoh Praktis Views | ✅ NEW | 750 |
+| 19 | `19-database-views-filtering.md` | Database Views & Filtering | ✅ | 680 |
+| 20 | `20-contoh-praktis-views.md` | Contoh Praktis Views | ✅ | 750 |
+| 21 | `21-i18n-multi-company.md` | Internationalization & Multi-Company | ✅ NEW | 260+ |
 | - | `README.md` | Dokumentasi Utama | ✅ | 300+ |
 
-**Total: 21 file, 8,839+ baris**
+**Total: 22 file, 9,100+ baris**
 
 ---
 
@@ -96,6 +97,20 @@ Status: LENGKAP ✅
 - Email automation untuk VIP
 
 **Baris Code:** 750+ baris
+
+---
+
+### Bab 21: Internationalization (i18n) & Multi-Company
+
+**Topik yang Dicakup:**
+- ✅ Membungkus string dengan `_()` (Python) dan `_t()` (OWL/JS)
+- ✅ Struktur file `.pot`/`.po` dan command CLI export-import
+- ✅ Field `translate=True`
+- ✅ Install bahasa & load terjemahan otomatis saat install module
+- ✅ Multi-company: `company_id`, record rules multi-company
+- ✅ `company_dependent=True` vs `with_company()` vs `allowed_company_ids`
+
+**Baris Code:** 260+ baris
 
 ---
 
@@ -313,37 +328,12 @@ mkdir -p addons/my_first_module
 
 ### Potensial Tambahan (Opsional)
 
-#### Bab 21: GraphQL API (Future)
-- GraphQL setup di Odoo 18
-- Query & mutation
-- Authentication
-- Best practices
+Modul saat ini sudah mencakup fundamental hingga advanced (termasuk i18n & multi-company di Bab 21). Topik lanjutan berikut bersifat opsional, hanya relevan untuk use case spesifik:
 
-#### Bab 22: Mobile App Integration (Future)
-- REST API untuk mobile
-- Authentication dengan JWT
-- Offline sync strategies
-- Push notifications
-
-#### Bab 23: Advanced OWL Patterns (Future)
-- Custom hooks
-- Global stores
-- Component communication
-- Performance optimization
-
-#### Bab 24: CI/CD Pipeline (Future)
-- GitHub Actions setup
-- Automated testing
-- Docker build & push
-- Deployment automation
-
-#### Bab 25: Kubernetes Deployment (Future)
-- K8s manifests
-- Helm charts
-- Scaling strategies
-- High availability
-
-**Note:** Modul saat ini sudah SANGAT LENGKAP (95%+ coverage). Tambahan di atas bersifat opsional untuk use case spesifik.
+- **Mobile App Integration** — autentikasi JWT di atas custom REST endpoint (Bab 17), offline sync, push notification
+- **Advanced OWL Patterns** — custom hooks, global stores, component communication lanjutan (lanjutan Bab 13)
+- **CI/CD Pipeline** — GitHub Actions, automated testing, build & push image Docker
+- **Kubernetes Deployment** — manifests, Helm charts, scaling, high availability (lanjutan Bab 15)
 
 ---
 
@@ -369,10 +359,12 @@ mkdir -p addons/my_first_module
 - [x] Testing
 - [x] Deployment & performance
 - [x] Debugging & troubleshooting
-- [x] External API
+- [x] External API (XML-RPC, JSON-RPC, custom REST-style)
 - [x] Best practices
-- [x] Database views ⭐
-- [x] Contoh praktis lengkap ⭐
+- [x] Database views
+- [x] Contoh praktis lengkap
+- [x] Internationalization (i18n) ⭐
+- [x] Multi-company ⭐
 
 ### Documentation ✅
 - [x] README lengkap
@@ -389,16 +381,17 @@ mkdir -p addons/my_first_module
 
 ### Modul ini LENGKAP dan mencakup:
 
-✅ **21 bab** dari basic hingga advanced
-✅ **8,839+ baris** dokumentasi berkualitas
+✅ **22 bab** dari basic hingga advanced
+✅ **9,100+ baris** dokumentasi berkualitas
 ✅ **200+ contoh code** yang bisa langsung dipakai
 ✅ **2 studi kasus lengkap** (Library + Sales Analytics)
 ✅ **Bahasa Indonesia** yang mudah dipahami
 ✅ **Odoo 18 specific** dengan syntax terbaru
 ✅ **Production-ready** dengan deployment guide
 ✅ **Best practices** dan anti-patterns
-✅ **Database views** untuk analytics (NEW) ⭐
+✅ **Database views** untuk analytics
 ✅ **Testing strategies** lengkap
+✅ **i18n & Multi-Company** (NEW) ⭐
 
 ### Cocok untuk:
 - 🎓 Pemula yang ingin belajar Odoo dari nol
@@ -410,12 +403,13 @@ mkdir -p addons/my_first_module
 1. Mulai dari Bab 1 (pemula) atau langsung ke bab yang relevan
 2. Praktik dengan studi kasus Library Management (Bab 10)
 3. Implementasi Sales Analytics untuk belajar database views (Bab 20)
-4. Build your own module!
+4. Siapkan module untuk multi-bahasa & multi-company (Bab 21)
+5. Build your own module!
 
 ---
 
 **Status: COMPLETE ✅**
-**Version: 2.0**
-**Last Updated: 2026-05-19**
+**Version: 2.1**
+**Last Updated: 2026-10-08**
 
 **Happy Coding! 🚀**

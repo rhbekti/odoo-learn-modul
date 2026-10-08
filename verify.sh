@@ -8,12 +8,13 @@ echo ""
 
 # Colors
 GREEN='\033[0;32m'
+RED='\033[0;31m'
 BLUE='\033[0;34m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-# Directory
-GUIDE_DIR="/home/stika/Documents/learn-odoo/odoo18-guide"
+# Directory (default: lokasi script ini sendiri, bisa di-override)
+GUIDE_DIR="${1:-$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)}"
 
 echo -e "${BLUE}📁 Direktori:${NC} $GUIDE_DIR"
 echo ""
@@ -70,6 +71,7 @@ important_files=(
     "18-tips-best-practices.md"
     "19-database-views-filtering.md"
     "20-contoh-praktis-views.md"
+    "21-i18n-multi-company.md"
 )
 
 for file in "${important_files[@]}"; do

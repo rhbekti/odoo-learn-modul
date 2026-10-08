@@ -35,17 +35,18 @@ Panduan komprehensif untuk belajar pengembangan Odoo 18 dari dasar hingga advanc
 | [12](12-qweb-reports.md) | **QWeb Reports** | PDF reports, custom templates, paper formats |
 | [13](13-owl-javascript.md) | **OWL JavaScript** | OWL 2.x components, frontend development |
 
-### 💼 Bagian 3: Professional Development (Bab 14-20)
+### 💼 Bagian 3: Professional Development (Bab 14-21)
 
 | Bab | Topik | Deskripsi |
 |-----|-------|-----------|
 | [14](14-testing.md) | **Testing** | Unit tests, integration tests, test coverage |
 | [15](15-deployment-performance.md) | **Deployment** | Production setup, Nginx, SSL, performance tuning |
 | [16](16-debugging-troubleshooting.md) | **Debugging** | Developer mode, Odoo shell, troubleshooting |
-| [17](17-external-api.md) | **External API** | XML-RPC, JSON-RPC, REST API integration |
+| [17](17-external-api.md) | **External API** | XML-RPC, JSON-RPC, custom REST-style endpoint |
 | [18](18-tips-best-practices.md) | **Best Practices** | Patterns, anti-patterns, naming conventions |
-| [19](19-database-views-filtering.md) | **Database Views** ⭐ | SQL views, materialized views, filtering models |
-| [20](20-contoh-praktis-views.md) | **Contoh Praktis** ⭐ | Sales analytics dashboard lengkap |
+| [19](19-database-views-filtering.md) | **Database Views** | SQL views, materialized views, filtering models |
+| [20](20-contoh-praktis-views.md) | **Contoh Praktis** | Sales analytics dashboard lengkap |
+| [21](21-i18n-multi-company.md) | **i18n & Multi-Company** ⭐ | Translasi (`.po`), `translate=True`, company rules |
 
 **⭐ = Bab baru yang ditambahkan**
 
@@ -119,8 +120,8 @@ Panduan ini menggunakan **Library Management System** sebagai contoh praktis:
 ## 📊 Statistik Panduan
 
 ```
-📁 Total Bab: 21 (termasuk daftar isi)
-📄 Total Halaman: 8,000+ baris dokumentasi
+📁 Total Bab: 22 (termasuk daftar isi)
+📄 Total Halaman: 8,200+ baris dokumentasi
 💻 Contoh Code: 200+ snippets
 🎯 Studi Kasus: Library Management + Sales Analytics
 🌐 Bahasa: Indonesia
@@ -186,10 +187,12 @@ Panduan ini menggunakan **Library Management System** sebagai contoh praktis:
 - ✅ 3 jenis inheritance
 - ✅ OWL JavaScript components
 - ✅ QWeb reports & PDF
-- ✅ External API (XML-RPC, JSON-RPC, REST)
-- ✅ Database views untuk analytics ⭐
+- ✅ External API (XML-RPC, JSON-RPC, custom REST-style endpoint)
+- ✅ Database views untuk analytics
 - ✅ Performance optimization
 - ✅ Testing (unit, integration, HTTP)
+- ✅ Internationalization (i18n) & translasi ⭐
+- ✅ Multi-company (record rules, company-dependent fields) ⭐
 
 ### DevOps & Production
 - ✅ Docker setup
@@ -223,7 +226,8 @@ Day 14:    Bab 13    (OWL JavaScript)
 Day 15-16: Bab 14-15 (Testing & Deployment)
 Day 17-18: Bab 16-17 (Debugging & API)
 Day 19-20: Bab 18-20 (Best Practices & Database Views)
-Day 21:    Review & Build Your Own Module!
+Day 21:    Bab 21 (i18n & Multi-Company)
+Day 22:    Review & Build Your Own Module!
 ```
 
 ---
@@ -329,7 +333,12 @@ Terima kasih kepada:
 
 ## 📈 Changelog
 
-### Version 2.0 (2026-05-19) ⭐
+### Version 2.1 (2026-10-08) ⭐
+- ✅ Tambah Bab 21: Internationalization (i18n) & Multi-Company
+- ✅ Perbaikan: Bab 17 — klarifikasi bahwa Odoo tidak punya REST API bawaan
+- ✅ Perbaikan: `verify.sh` (path hardcode & bug variabel warna)
+
+### Version 2.0 (2026-05-19)
 - ✅ Tambah Bab 19: Database Views & Filtering
 - ✅ Tambah Bab 20: Contoh Praktis Sales Analytics
 - ✅ Update best practices untuk Odoo 18
@@ -372,5 +381,5 @@ Jika panduan ini membantu Anda, jangan lupa beri ⭐ star!
 
 **Happy Coding! 🚀**
 
-*Last updated: 2026-05-19*
-*Version: 2.0*
+*Last updated: 2026-10-08*
+*Version: 2.1*

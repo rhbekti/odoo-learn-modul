@@ -2,13 +2,15 @@
 
 Odoo menyediakan API untuk mengakses data dari aplikasi eksternal (Python, PHP, Node.js, mobile app, dll).
 
+> ⚠️ **Penting:** Odoo (termasuk versi 18) **tidak menyediakan REST API bawaan**. Satu-satunya API resmi yang built-in adalah **XML-RPC** dan **JSON-RPC** (keduanya RPC-style, bukan REST). Kalau butuh endpoint bergaya REST (`GET /api/v1/books`, dsb), itu harus **dibuat sendiri** memakai `http.Controller` — lihat bagian "Custom REST API Endpoint" di bawah. Jangan menganggap REST API sebagai fitur native Odoo 18.
+
 ## Jenis API
 
-| API | Protocol | Kapan Dipakai |
-|-----|---------|---------------|
-| XML-RPC | XML over HTTP | Paling stabil, didukung banyak bahasa |
-| JSON-RPC | JSON over HTTP | Lebih ringan, mudah debug |
-| REST API | HTTP REST (Odoo 18) | Modern, standar industri |
+| API | Protocol | Status di Odoo | Kapan Dipakai |
+|-----|---------|-----------------|---------------|
+| XML-RPC | XML over HTTP | Built-in (resmi) | Paling stabil, didukung banyak bahasa |
+| JSON-RPC | JSON over HTTP | Built-in (resmi) | Lebih ringan, mudah debug |
+| REST-style custom | HTTP REST | **Custom (bukan bawaan Odoo)** | Dibuat sendiri via `http.Controller` saat butuh gaya REST yang familiar untuk tim frontend/mobile |
 
 ---
 
@@ -300,7 +302,7 @@ main();
 
 ## Custom REST API Endpoint
 
-Membuat endpoint REST sendiri di module Odoo.
+Odoo tidak punya REST API bawaan, jadi kalau mau gaya REST, buat endpoint sendiri di module Odoo dengan `http.Controller`.
 
 ```python
 # controllers/api.py

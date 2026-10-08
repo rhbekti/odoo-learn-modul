@@ -99,7 +99,7 @@
 
 ---
 
-### Bagian 3: Professional Development (Bab 14-19)
+### Bagian 3: Professional Development (Bab 14-21)
 
 14. **[Testing](14-testing.md)**
     - TransactionCase
@@ -142,13 +142,25 @@
     - Odoo 18 changes
     - Deployment checklist
 
-19. **[Database Views & Filtering](19-database-views-filtering.md)** ⭐ NEW
+19. **[Database Views & Filtering](19-database-views-filtering.md)**
     - SQL Views (read-only reporting)
     - Materialized Views (cached data)
     - Filtering inherited models
     - Record rules untuk filtering
     - Performance optimization
     - Best practices
+
+20. **[Contoh Praktis Views](20-contoh-praktis-views.md)**
+    - Sales Analytics Dashboard
+    - Materialized & regular views
+    - Pivot, graph, drill-down actions
+
+21. **[Internationalization & Multi-Company](21-i18n-multi-company.md)** ⭐ NEW
+    - Membungkus string dengan `_()` / `_t()`
+    - File `.pot`/`.po` dan CLI export-import
+    - Field `translate=True`
+    - Multi-company: `company_id`, record rules, `company_dependent`
+    - `with_company()` vs `allowed_company_ids`
 
 ---
 
@@ -163,6 +175,7 @@ Langsung ke bab yang relevan dengan kebutuhan Anda:
 - **Butuh API?** → Bab 17 (External API)
 - **Butuh frontend?** → Bab 13 (OWL JavaScript)
 - **Butuh optimize performance?** → Bab 15 (Deployment) & Bab 19 (Views)
+- **Butuh multi-bahasa / multi-company?** → Bab 21 (i18n & Multi-Company)
 
 ### Untuk Tim
 Gunakan Bab 18 (Best Practices) sebagai coding standard dan Bab 14 (Testing) untuk quality assurance.
@@ -214,4 +227,4 @@ Dokumentasi ini bersifat open source dan bebas digunakan untuk pembelajaran.
 
 **Selamat Belajar Odoo 18! 🚀**
 
-*Last updated: 2026-05-19*
+*Last updated: 2026-10-08*
