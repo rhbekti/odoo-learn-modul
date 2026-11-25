@@ -1,385 +1,137 @@
-# README - Panduan Lengkap Odoo 18 Development
+# Panduan Lengkap Odoo 18 Development
 
 ![Odoo 18](https://img.shields.io/badge/Odoo-18.0-714B67?style=for-the-badge&logo=odoo)
+![Odoo 19](https://img.shields.io/badge/Catatan-Odoo%2019.0-714B67?style=for-the-badge&logo=odoo)
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![License](https://img.shields.io/badge/License-Open%20Source-green?style=for-the-badge)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-12%2B%20(18)%20%7C%2013%2B%20(19)-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 
-Panduan komprehensif untuk belajar pengembangan Odoo 18 dari dasar hingga advanced, dalam Bahasa Indonesia.
-
----
-
-## 📚 Daftar Isi Lengkap
-
-### 🎯 Bagian 1: Fundamental (Bab 1-7)
-
-| Bab | Topik | Deskripsi |
-|-----|-------|-----------|
-| [00](00-daftar-isi.md) | **Daftar Isi** | Navigasi lengkap semua bab |
-| [01](01-docker-setup.md) | **Docker Setup** | Setup environment dengan Docker & Docker Compose |
-| [02](02-install-config.md) | **Install & Config** | Konfigurasi Odoo, odoo.conf, environment variables |
-| [03](03-module-structure.md) | **Struktur Module** | Struktur direktori, __manifest__.py, best practices |
-| [04](04-models-orm.md) | **Models & ORM** | Field types, decorators, CRUD, domain filters |
-| [05](05-views-xml.md) | **Views XML** | Form, tree, search, kanban, calendar, pivot, graph |
-| [06](06-controllers-routing.md) | **Controllers** | HTTP/JSON endpoints, routing, authentication |
-| [07](07-security-access-rights.md) | **Security** | Access rights, record rules, groups, permissions |
-
-### 🚀 Bagian 2: Advanced Features (Bab 8-13)
-
-| Bab | Topik | Deskripsi |
-|-----|-------|-----------|
-| [08](08-wizards-dialogs.md) | **Wizards** | TransientModel, dialog forms, multi-step wizards |
-| [09](09-inheritance-override.md) | **Inheritance** | 3 jenis inheritance, override methods, view inheritance |
-| [10](10-multi-model-module.md) | **Multi-Model** | Studi kasus Library Management System lengkap |
-| [11](11-data-files-sequences.md) | **Data & Sequences** | XML/CSV data, sequences, cron jobs, email templates |
-| [12](12-qweb-reports.md) | **QWeb Reports** | PDF reports, custom templates, paper formats |
-| [13](13-owl-javascript.md) | **OWL JavaScript** | OWL 2.x components, frontend development |
-
-### 💼 Bagian 3: Professional Development (Bab 14-21)
-
-| Bab | Topik | Deskripsi |
-|-----|-------|-----------|
-| [14](14-testing.md) | **Testing** | Unit tests, integration tests, test coverage |
-| [15](15-deployment-performance.md) | **Deployment** | Production setup, Nginx, SSL, performance tuning |
-| [16](16-debugging-troubleshooting.md) | **Debugging** | Developer mode, Odoo shell, troubleshooting |
-| [17](17-external-api.md) | **External API** | XML-RPC, JSON-RPC, custom REST-style endpoint |
-| [18](18-tips-best-practices.md) | **Best Practices** | Patterns, anti-patterns, naming conventions |
-| [19](19-database-views-filtering.md) | **Database Views** | SQL views, materialized views, filtering models |
-| [20](20-contoh-praktis-views.md) | **Contoh Praktis** | Sales analytics dashboard lengkap |
-| [21](21-i18n-multi-company.md) | **i18n & Multi-Company** ⭐ | Translasi (`.po`), `translate=True`, company rules |
-
-**⭐ = Bab baru yang ditambahkan**
+Panduan belajar pengembangan Odoo dari dasar sampai production, dalam Bahasa Indonesia. Contoh kode memakai **Odoo 18**; perbedaan di **Odoo 19** ditandai dengan kotak `Beda di Odoo 19` di tiap bab.
 
 ---
 
-## 🎓 Untuk Siapa Panduan Ini?
+## Mulai dari Mana?
 
-### ✅ Pemula
-- Belum pernah coding Odoo
-- Ingin belajar dari nol
-- Butuh panduan step-by-step
+1. Buka [00-daftar-isi.md](00-daftar-isi.md) untuk peta jalur belajar lengkap (5 tahap, 21 bab).
+2. Pemula: kerjakan Bab 1 sampai 10 berurutan. Bab 10 adalah proyek akhir Tahap 2.
+3. Sudah berpengalaman: pilih bab sesuai kebutuhan; setiap bab mencantumkan prasyaratnya.
+4. Migrasi dari Odoo 17 atau lebih lama: lihat tabel perbedaan versi di [RINGKASAN.md](RINGKASAN.md).
 
-**Mulai dari:** Bab 1 → Bab 7 (Fundamental)
+## Jalur Belajar
 
-### ✅ Developer Berpengalaman
-- Sudah familiar dengan Python/PostgreSQL
-- Ingin migrasi ke Odoo 18
-- Butuh reference cepat
+| Tahap | Bab | Isi |
+|-------|-----|-----|
+| 1. Persiapan | 1–3 | Docker, `odoo.conf` & CLI, struktur module |
+| 2. Inti Pengembangan | 4–10 | Models & ORM, views, security, data & cron, inheritance, wizard, proyek Library |
+| 3. Fitur Lanjutan | 11–14 | QWeb report PDF, controller, OWL, i18n & multi-company |
+| 4. Data & Analitik | 15–16 | SQL view, materialized view, Sales Analytics |
+| 5. Profesional | 17–21 | Testing, debugging, external API, deployment, best practices |
 
-**Langsung ke:** Bab yang relevan atau Bab 18 (Best Practices)
+Estimasi total: ± 61 jam belajar aktif.
 
-### ✅ Tim Development
-- Butuh coding standard
-- Perlu setup CI/CD
-- Ingin optimize performance
+### Rencana 6 Minggu (contoh)
 
-**Focus pada:** Bab 14 (Testing), Bab 15 (Deployment), Bab 18 (Best Practices)
+| Minggu | Bab | Target |
+|--------|-----|--------|
+| 1 | 1–4 | Environment jalan, module pertama punya satu model |
+| 2 | 5–7 | Model punya view, hak akses, dan data awal |
+| 3 | 8–10 | Inheritance, wizard, dan proyek Library selesai |
+| 4 | 11–14 | Report PDF, endpoint, komponen OWL, terjemahan |
+| 5 | 15–17 | Dashboard SQL view dan test otomatis |
+| 6 | 18–21 | Debugging, API, deployment, review checklist |
 
 ---
 
-## 🚀 Quick Start
-
-### 1. Setup Environment
+## Quick Start
 
 ```bash
-# Clone atau download panduan ini
-cd odoo18-guide
-
-# Buat docker-compose.yml (lihat Bab 1)
+# 1. Siapkan environment (detail di Bab 1)
 docker compose up -d
 
-# Akses Odoo
+# 2. Buka Odoo
 # http://localhost:8069
+
+# 3. Buat module pertama (detail di Bab 3)
+mkdir -p addons/library_management/{models,views,security}
+touch addons/library_management/__init__.py addons/library_management/__manifest__.py
 ```
 
-### 2. Buat Module Pertama
+Seluruh contoh memakai satu module bernama `library_management`. Nama ini konsisten dari Bab 3 sampai Bab 21.
+
+---
+
+## Cakupan Versi
+
+| Hal | Odoo 18 (utama) | Odoo 19 (catatan) |
+|-----|-----------------|--------------------|
+| Python | 3.10+ | 3.10+ |
+| PostgreSQL | 12+ | 13+ |
+| Tag daftar di view | `<list>` | `<list>` |
+| Constraint SQL | `_sql_constraints` | `models.Constraint`, `models.Index`, `models.UniqueIndex` |
+| External API | XML-RPC & JSON-RPC | JSON-2 (`/json/2/...`); XML-RPC/JSON-RPC deprecated |
+
+Daftar lengkap ada di [RINGKASAN.md](RINGKASAN.md). Semua klaim versi dicek ke dokumentasi resmi Odoo 18 dan 19 serta kode sumber 18.0/19.0 di GitHub. Klaim yang tidak bisa diverifikasi sengaja tidak ditulis sebagai fakta.
+
+---
+
+## Format Tiap Bab
+
+Setiap bab memakai kerangka yang sama supaya mudah dipelajari:
+
+1. **Meta:** tahap, prasyarat, estimasi waktu, versi.
+2. **Tujuan Belajar:** apa yang bisa kamu lakukan setelah bab selesai.
+3. **Isi:** dari konsep sederhana ke kompleks.
+4. **Beda di Odoo 19:** kotak catatan singkat bila relevan.
+5. **Ringkasan:** poin-poin yang perlu diingat.
+6. **Latihan:** 2–3 soal praktik kecil.
+7. **Lanjut ke:** bab berikutnya.
+
+## Verifikasi Materi
 
 ```bash
-# Struktur module sederhana
-mkdir -p addons/my_module
-cd addons/my_module
-
-# Buat file-file dasar
-touch __init__.py __manifest__.py
-mkdir models views security
+./verify.sh
 ```
 
-### 3. Ikuti Studi Kasus
-
-Panduan ini menggunakan **Library Management System** sebagai contoh praktis:
-- Multiple models dengan relasi kompleks
-- State machine (draft → active → returned)
-- Wizards, reports, dan automated actions
-- Security & access rights
-- External API integration
-
-**Lihat:** Bab 10 (Multi-Model Module)
+Skrip mengecek kelengkapan 21 bab, kesesuaian judul dengan nomor file, tautan antar-berkas, sisa sintaks lama, dan konsistensi nama module.
 
 ---
 
-## 📊 Statistik Panduan
+## Kontribusi
 
-```
-📁 Total Bab: 22 (termasuk daftar isi)
-📄 Total Halaman: 8,200+ baris dokumentasi
-💻 Contoh Code: 200+ snippets
-🎯 Studi Kasus: Library Management + Sales Analytics
-🌐 Bahasa: Indonesia
-```
+Panduan ini bersifat open source. Kontribusi diterima untuk perbaikan typo, koreksi kode, contoh tambahan, atau pembaruan versi. Cara umum: fork, buat branch, commit, lalu pull request. Sertakan sumber (dokumentasi resmi atau kode sumber Odoo) untuk setiap klaim perbedaan versi.
 
----
+## Sumber Resmi
 
-## 🔥 Fitur Unggulan
+- [Dokumentasi Odoo 18](https://www.odoo.com/documentation/18.0/)
+- [Dokumentasi Odoo 19](https://www.odoo.com/documentation/19.0/)
+- [Odoo di GitHub](https://github.com/odoo/odoo)
 
-### ✨ Odoo 18 Specific
-- Syntax terbaru (invisible="expression" bukan attrs)
-- OWL 2.x components
-- Modern best practices
-- Performance optimization
+## Lisensi
 
-### 📖 Pembelajaran Terstruktur
-- Dari basic ke advanced
-- Contoh praktis di setiap bab
-- Studi kasus lengkap
-- Troubleshooting tips
-
-### 🛠️ Production Ready
-- Deployment guide
-- Security best practices
-- Performance tuning
-- Testing strategies
-
-### 🇮🇩 Bahasa Indonesia
-- Mudah dipahami
-- Istilah teknis dijelaskan
-- Contoh relevan dengan konteks lokal
+Dokumentasi ini open source dan bebas dipakai untuk pembelajaran pribadi, training internal, referensi project, dan dibagikan ke komunitas. Tidak diperbolehkan dijual kembali tanpa izin atau diklaim sebagai karya sendiri.
 
 ---
 
-## 💡 Topik Khusus yang Dicakup
+## Changelog
 
-### Models & Data
-- ✅ Field types lengkap (Char, Integer, Many2one, dll)
-- ✅ Computed fields & dependencies
-- ✅ Onchange & constraints
-- ✅ SQL Views & Materialized Views ⭐
-- ✅ Filtering inherited models ⭐
-- ✅ Parent-child hierarchy
-- ✅ Multi-company & multi-currency
+### Version 3.0 (2026-11-24)
+- Jalur belajar disusun ulang menjadi 5 tahap; urutan bab berubah (Security → Bab 6, Data Files → Bab 7, Inheritance → Bab 8, Wizards → Bab 9, QWeb → Bab 11, Controllers → Bab 12, i18n → Bab 14, Database Views → Bab 15, Contoh Praktis → Bab 16, Testing → Bab 17, Debugging → Bab 18, External API → Bab 19, Deployment → Bab 20, Tips → Bab 21).
+- Setiap bab diseragamkan: meta, tujuan belajar, ringkasan, latihan, kotak Odoo 19.
+- Seluruh contoh disesuaikan dengan Odoo 18: `<list>`, `<chatter/>`, atribut inline, `_compute_display_name`, `aggregator`, dan sebagainya.
+- Koreksi: `models.Constraint` dan `odoo.fields.Domain` adalah fitur Odoo 19 (sebelumnya tertulis 18 dan 17).
+- Nama module studi kasus diseragamkan menjadi `library_management`.
+- Perbaikan banyak bug pada contoh kode (lihat laporan revisi).
+- `verify.sh` diperluas.
+- Topik baru: operasi recordset (Bab 4), query aman `odoo.tools.SQL` (Bab 15), record rule per-company dan inter-company (Bab 14), `freeze_time` dan CI/CD (Bab 17), profiling dan `assertQueryCount` (Bab 18), cache ORM, monitoring, install tanpa Docker, dan migrasi antar versi (Bab 20).
 
-### Views & UI
-- ✅ Form, tree, search, kanban views
-- ✅ Calendar, pivot, graph views
-- ✅ Widgets (statusbar, progressbar, badge, dll)
-- ✅ Conditional visibility (Odoo 18 syntax)
-- ✅ Smart buttons
-- ✅ Chatter integration
-
-### Business Logic
-- ✅ State machine pattern
-- ✅ Header-line pattern
-- ✅ Wizards & transient models
-- ✅ Automated actions (cron)
-- ✅ Email notifications
-- ✅ Scheduled tasks
-
-### Advanced Topics
-- ✅ 3 jenis inheritance
-- ✅ OWL JavaScript components
-- ✅ QWeb reports & PDF
-- ✅ External API (XML-RPC, JSON-RPC, custom REST-style endpoint)
-- ✅ Database views untuk analytics
-- ✅ Performance optimization
-- ✅ Testing (unit, integration, HTTP)
-- ✅ Internationalization (i18n) & translasi ⭐
-- ✅ Multi-company (record rules, company-dependent fields) ⭐
-
-### DevOps & Production
-- ✅ Docker setup
-- ✅ Nginx reverse proxy
-- ✅ SSL/TLS configuration
-- ✅ Multi-worker setup
-- ✅ Database optimization
-- ✅ Monitoring & logging
-
----
-
-## 🎯 Roadmap Belajar
-
-### Week 1-2: Fundamental
-```
-Day 1-2:  Bab 1-3  (Setup & Module Structure)
-Day 3-5:  Bab 4-5  (Models & Views)
-Day 6-7:  Bab 6-7  (Controllers & Security)
-```
-
-### Week 3-4: Advanced
-```
-Day 8-9:   Bab 8-9   (Wizards & Inheritance)
-Day 10-11: Bab 10    (Multi-Model Module - Practice!)
-Day 12-13: Bab 11-12 (Data Files & Reports)
-Day 14:    Bab 13    (OWL JavaScript)
-```
-
-### Week 5-6: Professional
-```
-Day 15-16: Bab 14-15 (Testing & Deployment)
-Day 17-18: Bab 16-17 (Debugging & API)
-Day 19-20: Bab 18-20 (Best Practices & Database Views)
-Day 21:    Bab 21 (i18n & Multi-Company)
-Day 22:    Review & Build Your Own Module!
-```
-
----
-
-## 🛠️ Tools & Technologies
-
-| Tool | Version | Purpose |
-|------|---------|---------|
-| Odoo | 18.0 | ERP Framework |
-| Python | 3.10+ | Backend Language |
-| PostgreSQL | 16 | Database |
-| Docker | 24.0+ | Containerization |
-| OWL | 2.x | Frontend Framework |
-| wkhtmltopdf | 0.12.6 | PDF Generation |
-| Nginx | Latest | Reverse Proxy |
-
----
-
-## 📝 Contoh Module Lengkap
-
-### Library Management System
-Studi kasus utama dengan fitur:
-- ✅ Book management (categories, copies)
-- ✅ Member management
-- ✅ Loan system (header-line pattern)
-- ✅ Fine calculation
-- ✅ State machine (draft → active → returned)
-- ✅ Automated reminders
-- ✅ Reports (loan receipt, member card)
-- ✅ Dashboard & analytics
-
-**Lihat:** Bab 10
-
-### Sales Analytics Dashboard ⭐
-Contoh baru dengan:
-- ✅ SQL Views untuk reporting
-- ✅ Materialized Views untuk performance
-- ✅ VIP customer segmentation
-- ✅ Product performance analytics
-- ✅ Pivot & graph views
-- ✅ Auto-refresh dengan cron
-
-**Lihat:** Bab 19-20
-
----
-
-## 🤝 Kontribusi
-
-Panduan ini bersifat open source. Kontribusi sangat diterima!
-
-### Cara Berkontribusi
-1. Fork repository ini
-2. Buat branch baru (`git checkout -b feature/improvement`)
-3. Commit perubahan (`git commit -m 'Add some improvement'`)
-4. Push ke branch (`git push origin feature/improvement`)
-5. Buat Pull Request
-
-### Yang Bisa Dikontribusi
-- ✏️ Perbaikan typo atau grammar
-- 📚 Tambahan contoh code
-- 🐛 Perbaikan error di code
-- 📖 Penjelasan lebih detail
-- 🆕 Topik baru yang relevan
-
----
-
-## 📞 Support & Community
-
-### Butuh Bantuan?
-- 📧 Email: [your-email@example.com]
-- 💬 Telegram: [Odoo Indonesia Community]
-- 🌐 Forum: [Odoo Forum Indonesia]
-
-### Resources Tambahan
-- [Odoo Official Documentation](https://www.odoo.com/documentation/18.0/)
-- [Odoo GitHub](https://github.com/odoo/odoo)
-- [Odoo Apps Store](https://apps.odoo.com/)
-
----
-
-## ⚖️ Lisensi
-
-Dokumentasi ini bersifat **open source** dan bebas digunakan untuk:
-- ✅ Pembelajaran pribadi
-- ✅ Training internal perusahaan
-- ✅ Referensi project
-- ✅ Sharing dengan komunitas
-
-**Tidak diperbolehkan:**
-- ❌ Dijual kembali tanpa izin
-- ❌ Diklaim sebagai karya sendiri
-
----
-
-## 🙏 Acknowledgments
-
-Terima kasih kepada:
-- Odoo SA untuk framework yang luar biasa
-- Komunitas Odoo Indonesia
-- Semua kontributor panduan ini
-
----
-
-## 📈 Changelog
-
-### Version 2.1 (2026-10-08) ⭐
-- ✅ Tambah Bab 21: Internationalization (i18n) & Multi-Company
-- ✅ Perbaikan: Bab 17 — klarifikasi bahwa Odoo tidak punya REST API bawaan
-- ✅ Perbaikan: `verify.sh` (path hardcode & bug variabel warna)
+### Version 2.1 (2026-10-08)
+- Tambah bab i18n & Multi-Company; klarifikasi Bab External API (Odoo tidak punya REST API bawaan); perbaikan `verify.sh`.
 
 ### Version 2.0 (2026-05-19)
-- ✅ Tambah Bab 19: Database Views & Filtering
-- ✅ Tambah Bab 20: Contoh Praktis Sales Analytics
-- ✅ Update best practices untuk Odoo 18
-- ✅ Tambah materialized views examples
-- ✅ Tambah filtering inherited models techniques
+- Tambah bab Database Views & Filtering dan Contoh Praktis Sales Analytics.
 
 ### Version 1.0 (2024-01-01)
-- ✅ 18 bab fundamental hingga advanced
-- ✅ Studi kasus Library Management System
-- ✅ Dokumentasi lengkap dalam Bahasa Indonesia
+- 18 bab fundamental hingga advanced dan studi kasus Library Management System.
 
 ---
 
-## 🎯 Next Steps
-
-Setelah menyelesaikan panduan ini, Anda bisa:
-
-1. **Build Your Own Module**
-   - Identifikasi kebutuhan bisnis
-   - Design database schema
-   - Implement dengan best practices
-
-2. **Contribute to Odoo**
-   - Join Odoo Community Association (OCA)
-   - Contribute ke open source modules
-   - Share knowledge dengan komunitas
-
-3. **Become Odoo Expert**
-   - Ambil sertifikasi Odoo official
-   - Join Odoo partner program
-   - Build commercial modules
-
----
-
-## 🌟 Star This Repository!
-
-Jika panduan ini membantu Anda, jangan lupa beri ⭐ star!
-
----
-
-**Happy Coding! 🚀**
-
-*Last updated: 2026-10-08*
-*Version: 2.1*
+*Last updated: 2026-11-24 | Version: 3.0*

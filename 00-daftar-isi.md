@@ -1,230 +1,116 @@
-# Panduan Lengkap Odoo 18 Development
+# Panduan Lengkap Odoo 18 Development (dengan catatan Odoo 19)
 
-## Daftar Isi
+> **Versi materi:** 3.0 | **Target:** Odoo 18 (kode utama) dengan kotak "Beda di Odoo 19" | **Diperbarui:** 2026-11-24
 
-### Bagian 1: Setup & Fundamental (Bab 1-7)
-
-1. **[Docker Setup](01-docker-setup.md)**
-   - Setup Docker & Docker Compose
-   - Konfigurasi container Odoo 18
-   - Tips development dengan Docker
-
-2. **[Install & Konfigurasi](02-install-config.md)**
-   - Konfigurasi odoo.conf
-   - Environment variables
-   - Database management
-   - CLI commands
-
-3. **[Struktur Module](03-module-structure.md)**
-   - Struktur direktori module
-   - __manifest__.py
-   - __init__.py
-   - Best practices naming
-
-4. **[Models & ORM](04-models-orm.md)**
-   - Field types (Char, Integer, Many2one, dll)
-   - API decorators (@api.depends, @api.onchange)
-   - CRUD operations
-   - Domain filters
-   - Lifecycle hooks
-
-5. **[Views XML](05-views-xml.md)**
-   - Form view
-   - Tree view (list)
-   - Search view
-   - Kanban view
-   - Calendar, Pivot, Graph views
-   - Widgets
-
-6. **[Controllers & Routing](06-controllers-routing.md)**
-   - HTTP controllers
-   - JSON-RPC endpoints
-   - Authentication
-   - Request/Response handling
-   - Website integration
-
-7. **[Security & Access Rights](07-security-access-rights.md)**
-   - ir.model.access.csv
-   - Record rules
-   - Groups & permissions
-   - Field-level security
+Materi ini dibagi menjadi **5 tahap**. Setiap bab punya format yang sama: tujuan belajar, prasyarat, estimasi waktu, isi, ringkasan, latihan, dan petunjuk bab berikutnya. Ikuti urutan nomor kalau kamu pemula.
 
 ---
 
-### Bagian 2: Advanced Features (Bab 8-13)
+## Peta Jalur Belajar
 
-8. **[Wizards & Dialogs](08-wizards-dialogs.md)**
-   - TransientModel
-   - Wizard views
-   - Multi-step wizards
-   - Context & default values
+| Tahap | Bab | Fokus | Estimasi |
+|-------|-----|-------|----------|
+| 1. Persiapan | 1–3 | Environment Docker, konfigurasi, struktur module | ± 4 jam |
+| 2. Inti Pengembangan | 4–10 | Model, view, security, data, inheritance, wizard, proyek akhir | ± 21 jam |
+| 3. Fitur Lanjutan | 11–14 | Report PDF, controller, OWL, i18n & multi-company | ± 13 jam |
+| 4. Data & Analitik | 15–16 | SQL view, materialized view, query SQL aman, dashboard | ± 6,5 jam |
+| 5. Profesional | 17–21 | Testing & CI/CD, debugging & profiling, API, deployment & migrasi, best practices | ± 16,5 jam |
 
-9. **[Inheritance & Override](09-inheritance-override.md)**
-   - Class inheritance (extension)
-   - Prototype inheritance
-   - Delegation inheritance (_inherits)
-   - Override methods dengan super()
-   - View inheritance (xpath)
-
-10. **[Multi-Model Module](10-multi-model-module.md)**
-    - Studi kasus: Library Management System
-    - Relasi antar model (Many2one, One2many, Many2many)
-    - Header-line pattern
-    - Parent-child hierarchy
-    - Computed fields lintas model
-
-11. **[Data Files & Sequences](11-data-files-sequences.md)**
-    - XML data files
-    - CSV data files
-    - noupdate attribute
-    - Sequences (auto-numbering)
-    - Automated actions (cron jobs)
-    - Email templates
-
-12. **[QWeb Reports](12-qweb-reports.md)**
-    - Report actions
-    - QWeb templates
-    - PDF generation
-    - Custom paper formats
-    - Report parser
-    - Dynamic reports
-
-13. **[OWL JavaScript](13-owl-javascript.md)**
-    - OWL 2.x components
-    - Component lifecycle
-    - State management (useState)
-    - Services (useService)
-    - Custom widgets
-    - Backend vs Frontend assets
+Total estimasi: ± 61 jam belajar aktif (di luar waktu mengerjakan latihan tambahan).
 
 ---
 
-### Bagian 3: Professional Development (Bab 14-21)
+## Tahap 1: Persiapan (Bab 1–3)
 
-14. **[Testing](14-testing.md)**
-    - TransactionCase
-    - SingleTransactionCase
-    - HttpCase
-    - Form utility (test onchange)
-    - Test coverage
-    - Mock & patch
+| Bab | Topik | Prasyarat | Estimasi |
+|-----|-------|-----------|----------|
+| [1](01-docker-setup.md) | Docker Setup: compose, volume, perintah harian | Tidak ada | ± 1 jam |
+| [2](02-install-config.md) | Install & Konfigurasi: `odoo.conf`, CLI, database | Bab 1 | ± 1,5 jam |
+| [3](03-module-structure.md) | Struktur Module: `__manifest__.py`, folder, install & update | Bab 1, 2 | ± 1,5 jam |
 
-15. **[Deployment & Performance](15-deployment-performance.md)**
-    - Production docker-compose
-    - Nginx reverse proxy
-    - SSL/TLS configuration
-    - Workers & multi-processing
-    - Database optimization
-    - Caching strategies
-    - Monitoring & logging
+## Tahap 2: Inti Pengembangan (Bab 4–10)
 
-16. **[Debugging & Troubleshooting](16-debugging-troubleshooting.md)**
-    - Developer mode
-    - Odoo shell
-    - Logging & breakpoints
-    - PostgreSQL queries
-    - Common errors & solutions
-    - Performance profiling
+| Bab | Topik | Prasyarat | Estimasi |
+|-----|-------|-----------|----------|
+| [4](04-models-orm.md) | Models & ORM: field, compute, constraint, CRUD, domain, operasi recordset | Bab 3 | ± 3,5 jam |
+| [5](05-views-xml.md) | Views XML: form, list, search, kanban, action, menu | Bab 3, 4 | ± 3 jam |
+| [6](06-security-access-rights.md) | Security: access rights, group, record rule | Bab 4, 5 | ± 2 jam |
+| [7](07-data-files-sequences.md) | Data Files, Sequences & Automated Actions (cron) | Bab 3, 4, 6 | ± 3 jam |
+| [8](08-inheritance-override.md) | Inheritance & Override: extension, prototype, delegation, view | Bab 3, 4, 5 | ± 3 jam |
+| [9](09-wizards-dialogs.md) | Wizards & Dialogs: TransientModel, multi-step | Bab 4, 5, 6, 8 | ± 2,5 jam |
+| [10](10-multi-model-module.md) | **Proyek akhir Tahap 2:** Library Management (6 model) | Bab 3–9 | ± 4 jam |
 
-17. **[External API](17-external-api.md)**
-    - XML-RPC (Python, PHP, Node.js)
-    - JSON-RPC
-    - REST API (Odoo 18)
-    - Authentication & security
-    - Rate limiting
-    - Webhooks
+## Tahap 3: Fitur Lanjutan (Bab 11–14)
 
-18. **[Tips & Best Practices](18-tips-best-practices.md)**
-    - Naming conventions
-    - Common patterns (state machine, header-line, smart buttons)
-    - Anti-patterns (N+1 query, sudo abuse)
-    - Recordset operations
-    - Odoo 18 changes
-    - Deployment checklist
+| Bab | Topik | Prasyarat | Estimasi |
+|-----|-------|-----------|----------|
+| [11](11-qweb-reports.md) | QWeb Reports (PDF): template, paper format, parser | Bab 4, 5, 10 | ± 3 jam |
+| [12](12-controllers-routing.md) | Controllers & Routing: HTTP, JSON, auth, website | Bab 3, 4, 6, 10, 11 | ± 3 jam |
+| [13](13-owl-javascript.md) | OWL & JavaScript: komponen, service, asset | Bab 3, 5, 10, 12 | ± 4 jam |
+| [14](14-i18n-multi-company.md) | i18n (`.po`, `translate=True`), Multi-Company, record rule per-company, inter-company | Bab 4, 6, 13 | ± 3 jam |
 
-19. **[Database Views & Filtering](19-database-views-filtering.md)**
-    - SQL Views (read-only reporting)
-    - Materialized Views (cached data)
-    - Filtering inherited models
-    - Record rules untuk filtering
-    - Performance optimization
-    - Best practices
+## Tahap 4: Data & Analitik (Bab 15–16)
 
-20. **[Contoh Praktis Views](20-contoh-praktis-views.md)**
-    - Sales Analytics Dashboard
-    - Materialized & regular views
-    - Pivot, graph, drill-down actions
+| Bab | Topik | Prasyarat | Estimasi |
+|-----|-------|-----------|----------|
+| [15](15-database-views-filtering.md) | Database Views (SQL & materialized), query aman `odoo.tools.SQL`, filtering inherited model | Bab 4, 5, 6, 10 | ± 3,5 jam |
+| [16](16-contoh-praktis-views.md) | Contoh praktis: Sales Analytics Dashboard | Bab 5, 6, 7, 15 | ± 3 jam |
 
-21. **[Internationalization & Multi-Company](21-i18n-multi-company.md)** ⭐ NEW
-    - Membungkus string dengan `_()` / `_t()`
-    - File `.pot`/`.po` dan CLI export-import
-    - Field `translate=True`
-    - Multi-company: `company_id`, record rules, `company_dependent`
-    - `with_company()` vs `allowed_company_ids`
+## Tahap 5: Profesional (Bab 17–21)
+
+| Bab | Topik | Prasyarat | Estimasi |
+|-----|-------|-----------|----------|
+| [17](17-testing.md) | Testing: TransactionCase, HttpCase, Form, tour, `freeze_time`, CI/CD | Bab 4, 6, 10 (Bab 12 untuk test controller) | ± 3,5 jam |
+| [18](18-debugging-troubleshooting.md) | Debugging & Troubleshooting: dev mode, shell, log, profiling, error umum | Bab 2, 10, 17 | ± 3 jam |
+| [19](19-external-api.md) | External API: XML-RPC & JSON-RPC (+ catatan JSON-2 di Odoo 19) | Bab 4, 10, 12 | ± 2,5 jam |
+| [20](20-deployment-performance.md) | Deployment & Performance: Nginx, workers, PostgreSQL, cache ORM, monitoring, install tanpa Docker, migrasi versi | Bab 1, 2, 4, 10 | ± 5 jam |
+| [21](21-tips-best-practices.md) | Tips, Best Practices & Checklist (bab penutup) | Bab 4, 5, 6, 8, 10, 15, 20 | ± 2,5 jam |
+
+---
+
+## Berkas Pendukung
+
+- [README.md](README.md): gambaran umum, quick start, dan changelog.
+- [RINGKASAN.md](RINGKASAN.md): ringkasan per tahap dan tabel perbedaan versi Odoo 17 / 18 / 19.
+- [verify.sh](verify.sh): skrip pengecekan kelengkapan berkas materi.
 
 ---
 
 ## Cara Menggunakan Panduan Ini
 
-### Untuk Pemula
-Ikuti urutan dari Bab 1-7 untuk memahami fundamental Odoo development.
+**Pemula:** kerjakan Bab 1 sampai 10 berurutan. Bab 10 adalah proyek akhir Tahap 2; kalau kamu bisa membangun module itu sendiri, fondasimu sudah cukup.
 
-### Untuk Developer Berpengalaman
-Langsung ke bab yang relevan dengan kebutuhan Anda:
-- **Butuh reporting?** → Bab 12 (QWeb Reports) & Bab 19 (Database Views)
-- **Butuh API?** → Bab 17 (External API)
-- **Butuh frontend?** → Bab 13 (OWL JavaScript)
-- **Butuh optimize performance?** → Bab 15 (Deployment) & Bab 19 (Views)
-- **Butuh multi-bahasa / multi-company?** → Bab 21 (i18n & Multi-Company)
+**Developer berpengalaman:** langsung ke bab yang kamu butuhkan.
 
-### Untuk Tim
-Gunakan Bab 18 (Best Practices) sebagai coding standard dan Bab 14 (Testing) untuk quality assurance.
+- Butuh report PDF → Bab 11
+- Butuh endpoint HTTP/JSON → Bab 12
+- Butuh frontend OWL → Bab 13
+- Butuh multi-bahasa atau multi-company → Bab 14
+- Butuh laporan/analitik dari SQL → Bab 15 dan 16
+- Butuh integrasi dari luar Odoo → Bab 19
+- Butuh naik ke production → Bab 20
 
----
+**Tim:** pakai Bab 21 sebagai standar coding dan checklist, serta Bab 17 untuk quality assurance.
 
-## Studi Kasus Lengkap
-
-Panduan ini menggunakan **Library Management System** sebagai contoh praktis yang mencakup:
-
-- ✅ Multiple models dengan relasi kompleks
-- ✅ State machine (draft → active → returned)
-- ✅ Header-line pattern (loan → loan lines)
-- ✅ Parent-child hierarchy (book categories)
-- ✅ Computed fields & aggregations
-- ✅ Wizards & automated actions
-- ✅ Reports & email notifications
-- ✅ Security & access rights
-- ✅ External API integration
-- ✅ Database views untuk analytics
+**Migrasi dari Odoo 17 atau lebih lama:** baca [RINGKASAN.md](RINGKASAN.md) bagian tabel perbedaan versi, lalu kotak "Beda di Odoo 19" di tiap bab.
 
 ---
 
-## Teknologi yang Digunakan
+## Studi Kasus
 
-- **Odoo**: 18.0
-- **Python**: 3.10+
-- **PostgreSQL**: 16
-- **Docker**: 24.0+
-- **OWL**: 2.x
-- **wkhtmltopdf**: 0.12.6
+Seluruh contoh memakai satu module bernama `library_management` (Library Management System): buku, salinan, anggota, peminjaman (header-line), denda, laporan, dan wizard. Module dimulai kecil di Bab 3 dan dibangun penuh di Bab 10. Bab 15–16 memakai studi kasus kedua, Sales Analytics.
 
----
+## Teknologi
 
-## Kontribusi & Feedback
-
-Jika menemukan kesalahan atau ingin menambahkan materi:
-1. Buat issue di repository
-2. Submit pull request dengan perbaikan
-3. Diskusi di forum komunitas Odoo Indonesia
+| Komponen | Versi |
+|----------|-------|
+| Odoo | 18.0 (catatan 19.0) |
+| Python | 3.10+ |
+| PostgreSQL | 12+ (Odoo 18), 13+ (Odoo 19) |
+| Docker | Compose v2 |
+| OWL | 2.x |
+| wkhtmltopdf | 0.12.6 |
 
 ---
 
-## Lisensi
-
-Dokumentasi ini bersifat open source dan bebas digunakan untuk pembelajaran.
-
----
-
-**Selamat Belajar Odoo 18! 🚀**
-
-*Last updated: 2026-10-08*
+*Last updated: 2026-11-24*
